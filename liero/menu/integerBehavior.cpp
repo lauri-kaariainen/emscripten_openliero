@@ -31,7 +31,10 @@ bool IntegerBehavior::onLeftRight(Menu& menu, MenuItem& item, int dir)
 
 int IntegerBehavior::onEnter(Menu& menu, MenuItem& item)
 {
-	return -1;
+	#ifdef EMSCRIPTEN		
+		//change made made because of emscripten
+		return -1;
+	#endif
 	sfx.play(common, 27);
 	
 	if(!allowEntry)
