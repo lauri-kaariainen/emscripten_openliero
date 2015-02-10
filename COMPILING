@@ -1,3 +1,7 @@
+compiling to linux binary:
+	the version I compiled keeps segfaulting, and so is unplayable :(
+
+compiling to javascript: (this worked for me)
 this is how I compiled on Ubuntu 13.04 with emcc 
 (version 
 emcc (Emscripten GCC-like replacement + linker emulating GNU ld ) 1.29.0
