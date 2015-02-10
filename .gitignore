@@ -1,0 +1,10 @@
+openliero.bc
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+liero/CMakeCache.txt
+liero/CMakeFiles/
+liero/Makefile
+liero/cmake_install.cmake
+

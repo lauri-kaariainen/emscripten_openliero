@@ -31,6 +31,7 @@ bool IntegerBehavior::onLeftRight(Menu& menu, MenuItem& item, int dir)
 
 int IntegerBehavior::onEnter(Menu& menu, MenuItem& item)
 {
+	return -1;
 	sfx.play(common, 27);
 	
 	if(!allowEntry)
