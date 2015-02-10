@@ -198,6 +198,7 @@ struct Gfx : Renderer
 
 	
 	void drawBasicMenu(/*int curSel*/);
+	void EMSCRIPTENselectRandomMap();
 	void EMSCRIPTENselectSTBANA2Map();
 	void EMSCRIPTENselectProfileForPlayer1();
 	void EMSCRIPTENselectProfileForPlayer2();

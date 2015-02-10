@@ -988,6 +988,18 @@ using gvl::shared_ptr;
 
 void Gfx::selectLevel()
 {
+	#ifdef EMSCRIPTEN
+		
+		if(!(settings->levelFile.empty()) && settings->levelFile == "STBANA2.LEV"){
+			EMSCRIPTENselectRandomMap();
+			std::cout << "changed map to random" << std::endl;
+		}
+		else {
+			EMSCRIPTENselectSTBANA2Map();
+			std::cout << "changed map to STBANA2" << std::endl;
+		}
+		return;
+	#endif
 	Common& common = *this->common;
 	FileSelector levSel(common);
 
@@ -1065,6 +1077,13 @@ void Gfx::EMSCRIPTENselectSTBANA2Map()
 	return;
 }
 
+void Gfx::EMSCRIPTENselectRandomMap()
+{
+	settings->randomLevel = true;
+	settings->regenerateLevel = true;
+	settings->levelFile.clear();
+	return;
+}
 
 //EMSCRIPTEN-edit
 void Gfx::EMSCRIPTENselectProfileForPlayer1()
@@ -1512,8 +1531,8 @@ int Gfx::mainLoop(loopStatusStruct* loopStatus){
 		controller.reset(new LocalController(common, settings));
 		
 		{
-			settings->levelFile = "STBANA2";
-			settings->randomLevel = false;
+			//settings->levelFile = "STBANA2";
+			//settings->randomLevel = false;
 			Level newLevel(*common);
 			newLevel.generateFromSettings(*common, *settings, rand);
 			controller->swapLevel(newLevel);
@@ -1789,7 +1808,7 @@ int Gfx::mainLoop(loopStatusStruct* loopStatus){
 			{ 
 			//std::cout << "selecting new map" << std::endl;
 				Level newLevel(*common);
-				EMSCRIPTENselectSTBANA2Map();
+			//	EMSCRIPTENselectSTBANA2Map();
 				
 				newLevel.generateFromSettings(*common, *settings, rand);
 
