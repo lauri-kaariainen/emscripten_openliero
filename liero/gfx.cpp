@@ -349,7 +349,7 @@ void Gfx::loadMenus()
 //	mainMenu.addItem(MenuItem::space());
 	mainMenu.addItem(MenuItem(48, 48, "LEFT PLAYER (1)", MainMenu::MaPlayer1Settings));
 	mainMenu.addItem(MenuItem(48, 48, "RIGHT PLAYER (2)", MainMenu::MaPlayer2Settings));
-//	mainMenu.addItem(MenuItem(48, 48, "MATCH SETUP (3)", MainMenu::MaSettings));
+	mainMenu.addItem(MenuItem(48, 48, "MATCH SETUP (3)", MainMenu::MaSettings));
 
 	settingsMenu.valueOffsetX = 100;
 	playerMenu.valueOffsetX = 95;
