@@ -1,5 +1,7 @@
 compiling to linux binary:
-	the version I compiled keeps segfaulting, and so is unplayable :(
+	I couldn't even get the original (Open)Liero 1.36 to work on Ubuntu
+	because it segfaulted constantly. The source on this repo is borked
+	anyway and it should only work compiled with emscripten.
 
 compiling to javascript: (this worked for me)
 this is how I compiled on Ubuntu 13.04 with emcc 
