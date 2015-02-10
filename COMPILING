@@ -1,0 +1,22 @@
+this is how I compiled on Ubuntu 13.04 with emcc 
+(version 
+emcc (Emscripten GCC-like replacement + linker emulating GNU ld ) 1.29.0
+clang version 3.4) installed:
+
+1. git clone theRepo
+2. cd theFolder
+3. cmake-gui: 
+	source folder: /the/path/to/theFolder
+	build folder: /the/path/to
+	configure->generate
+4. cmake .
+5. nano CMakeCache:
+	CXX_PATH: your/emscripten/path/em++
+	CXX_FLAGS: -O3 -v
+	C_PATH: your/emscripten/path/emcc 
+	C_FLAGS: -O3 -v
+6. cmake .
+7. cd ..
+8. wget http://liero.be/download/lierov133winxp.zip
+9. unzip http://liero.be/download/lierov133winxp.zip
+10. ./compileO3.sh
