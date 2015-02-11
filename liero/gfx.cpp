@@ -992,11 +992,11 @@ void Gfx::selectLevel()
 		
 		if(!(settings->levelFile.empty()) && settings->levelFile == "STBANA2.LEV"){
 			EMSCRIPTENselectRandomMap();
-			std::cout << "changed map to random" << std::endl;
+			//std::cout << "changed map to random" << std::endl;
 		}
 		else {
 			EMSCRIPTENselectSTBANA2Map();
-			std::cout << "changed map to STBANA2" << std::endl;
+			//std::cout << "changed map to STBANA2" << std::endl;
 		}
 		return;
 	#endif

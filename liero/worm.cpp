@@ -58,7 +58,7 @@ void WormSettings::saveProfile(std::string const& path)
 void WormSettings::loadProfile(std::string const& path)
 {
 	int oldColor = color;
-	Console::writeLine("loading profile from file " +path);
+	//Console::writeLine("loading profile from file " +path);
 	try
 	{
 		gvl::stream_ptr str(new gvl::fstream(path.c_str(), "rb"));

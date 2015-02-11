@@ -268,7 +268,6 @@ bool Level::load(Common& common, Settings const& settings, std::string const& pa
 
 void Level::generateFromSettings(Common& common, Settings const& settings, Rand& rand)
 {
-	std::cout << "leve->generateFromsettings where generateRandom was " << settings.randomLevel << std::endl;
 
 	if(settings.randomLevel)
 	{
