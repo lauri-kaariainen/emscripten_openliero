@@ -1624,7 +1624,7 @@ int Gfx::mainLoop(loopStatusStruct* loopStatus){
 					mainMenu.moveToId(MainMenu::MaQuit);
 				else{
 					curMenu = &mainMenu;
-					loopStatus->loopStatusVar = "menuloop_iter";
+					//loopStatus->loopStatusVar = "menuloop_iter";
 				}
 			}
 			
@@ -1775,14 +1775,7 @@ int Gfx::mainLoop(loopStatusStruct* loopStatus){
 			process();
 		}
 		
-		/*for(fadeValue = 32; fadeValue > 0; --fadeValue)
-		{
-			menuFlip(true);
-			process();
-		}
-		*/
-		//return selected;
-
+	
 	}
 	if(loopStatus->loopStatusVar.compare("mainloop_continue_after_menuloop") == 0){
 
@@ -1800,15 +1793,15 @@ int Gfx::mainLoop(loopStatusStruct* loopStatus){
 			&& settings->levelFile == oldLevel->oldLevelFile)
 			{
 
-			//std::cout << "selecting old map" << std::endl;	
+			  std::cout << "selecting old map" << std::endl;	
 				// Take level and palette from old game
 				newController->swapLevel(*oldLevel);
 			}
 			else
 			{ 
-			//std::cout << "selecting new map" << std::endl;
+			  std::cout << "selecting new map" << std::endl;
 				Level newLevel(*common);
-			//	EMSCRIPTENselectSTBANA2Map();
+			
 				
 				newLevel.generateFromSettings(*common, *settings, rand);
 
@@ -1838,6 +1831,7 @@ int Gfx::mainLoop(loopStatusStruct* loopStatus){
 		loopStatus->loopStatusVar = "mainloop_start_iter";
 	}
 	if(loopStatus->loopStatusVar.compare("mainloop_start_iter") == 0){
+		//this is the hottest gameloop
 
 		if(!controller->process()){
 			
@@ -1846,15 +1840,9 @@ int Gfx::mainLoop(loopStatusStruct* loopStatus){
 		}
 			
 		
-	//	SDL_LockSurface(back);
-		//std::cout << "gfx:mainloop_iter() surface locked" << std::endl;
-		
 		clear();
 		
 		controller->draw(*this);
-		
-	//	SDL_UnlockSurface(back);
-		//std::cout << "one_iter: surface unlocked" << std::endl;
 		
 		flip();
 		

@@ -107,8 +107,6 @@ int main(int argc, char *argv[])
 	
 	std::cout << std::endl << std::endl << std::endl;
 	std::cout << "*****************************" << std::endl;
-	std::cout << "Note that player settings will reset after game over!" << std::endl;
-	std::cout << "*****************************" << std::endl;
 	std::cout << "Check keys/select profile before playing from player menu." << std::endl;
 	std::cout << "*****************************" << std::endl;
 	std::cout << "Two maps selectable: random & STBANA2" << std::endl;
