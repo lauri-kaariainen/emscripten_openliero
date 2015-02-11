@@ -1841,7 +1841,7 @@ int Gfx::mainLoop(loopStatusStruct* loopStatus){
 
 		if(!controller->process()){
 			
-			loopStatus->loopStatusVar = "initial";
+			loopStatus->loopStatusVar = "menuloop_iter";
 			
 		}
 			
