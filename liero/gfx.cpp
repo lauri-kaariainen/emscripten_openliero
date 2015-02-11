@@ -1531,8 +1531,7 @@ int Gfx::mainLoop(loopStatusStruct* loopStatus){
 		controller.reset(new LocalController(common, settings));
 		
 		{
-			//settings->levelFile = "STBANA2";
-			//settings->randomLevel = false;
+			
 			Level newLevel(*common);
 			newLevel.generateFromSettings(*common, *settings, rand);
 			controller->swapLevel(newLevel);
@@ -1602,11 +1601,12 @@ int Gfx::mainLoop(loopStatusStruct* loopStatus){
 	if(loopStatus->loopStatusVar.compare("menuloop_iter") == 0){
 		Common& common = *this->common;
 	
-				
-
+	
 		{
+
 			// Emscripten won't update canvas if we don't lock the surface
 	 		SDL_LockSurface(back);
+	 		
 			//std::cout << "gfx:menuloop() do-while surface locked" << std::endl;
 			drawBasicMenu();
 
@@ -1793,13 +1793,13 @@ int Gfx::mainLoop(loopStatusStruct* loopStatus){
 			&& settings->levelFile == oldLevel->oldLevelFile)
 			{
 
-			  std::cout << "selecting old map" << std::endl;	
+			 // std::cout << "selecting old map" << std::endl;	
 				// Take level and palette from old game
 				newController->swapLevel(*oldLevel);
 			}
 			else
 			{ 
-			  std::cout << "selecting new map" << std::endl;
+			  //std::cout << "selecting new map" << std::endl;
 				Level newLevel(*common);
 			
 				
@@ -1835,7 +1835,9 @@ int Gfx::mainLoop(loopStatusStruct* loopStatus){
 
 		if(!controller->process()){
 			
+			//let's skip the mainloop-end for now, it seemed to crash
 			loopStatus->loopStatusVar = "menuloop_iter";
+			//loopStatus->loopStatusVar = "mainloop_end";
 			
 		}
 			
@@ -1852,11 +1854,12 @@ int Gfx::mainLoop(loopStatusStruct* loopStatus){
 
 	}
 	if(loopStatus->loopStatusVar.compare("mainloop_end") == 0){
-			controller->unfocus();
+		controller->unfocus();
 	
 		clearKeys();
 
 		controller.reset();
+	    loopStatus->loopStatusVar = "menuloop_iter";
 	    // Delay to keep frame rate constant (using SDL)
 	    //SDL_Delay(time_to_next_frame());
 	}
